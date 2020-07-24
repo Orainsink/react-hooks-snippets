@@ -63,7 +63,7 @@
   },
   "import svg": {
       "prefix": "ims",
-      "body":["import { ReactComponent as set${1/(.*)/${1:/capitalize}/}Svg } from '$1.svg';$0"]
+      "body":["import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$1.svg';$0"]
   },
   "react component template": {
     "prefix": "imt",
