@@ -1,92 +1,119 @@
 {
-	"useState": {
+  "useState": {
     "prefix": "ush",
-    "body": [
-      "const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"
-    ],
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"],
     "description": "React useState() hook"
-	},
-	"useEffect": {
-		"prefix": "ueh",
-		"body": [
-			"useEffect(() => {",
-				"\t$1",
-				"\n\treturn cleanUp = () => {",
-					"\t\t$2",
-				"\t}",
-			"}, [${3}]);$0"
-		],
-		"description": "React useEffect() hook"
-	},
-	"useContext": {
-		"prefix": "uch",
-		"body": [
-			"const $1 = useContext($2);$0"
-		],
-		"description": "React useContext() hook"
-	},
-	"useCallback": {
-		"prefix": "ucbh",
-		"body": [
-			"const ${1:memoizedCallback} = useCallback(",
-				"\t() => {",
-					"\t\t${2:doSomething}(${3:a}, ${4:b})",
-				"\t},",
-				"\t[${5:a}, ${6:b}],",
-			");$0"
-		],
-		"description": "React useCallback() hook"
-	},
-	"useMemo": {
-		"prefix": "umh",
-		"body": [
-			"const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}]);$0"
-		],
-		"description": "React useMemo() hook"
-	},
-	"import react hooks": {
-    "prefix": "irh",
-    "body": ["import React, { useState, useContext, useEffect, useCallback, useMemo } from 'react';"]
   },
-	"useRef": {
-	"prefix": "urh",
-	"body": [
-		"const $1 = useRef($2)$0"
-    ],
+  "useEffect": {
+    "prefix": "ueh",
+    "body": ["useEffect(() => {", "\t$1", "}, [$2]);$0"],
+    "description": "React useEffect() hook"
+  },
+  "useContext": {
+    "prefix": "uch",
+    "body": ["const $1 = useContext($2);$0"],
+    "description": "React useContext() hook"
+  },
+  "useCallback": {
+    "prefix": "ucbh",
+    "body": ["const $1 = useCallback(() => {", "\t$2", "\t},[$3],", ");$0"],
+    "description": "React useCallback() hook"
+  },
+  "useMemo": {
+    "prefix": "umh",
+    "body": ["const $1 = useMemo(() => {", "\t$2", "}, [$3]);$0"],
+    "description": "React useMemo() hook"
+  },
+  "import react hooks": {
+    "prefix": "imh",
+    "body": ["import React, { $1 } from 'react';$0"]
+  },
+  "import react": {
+    "prefix": "imr",
+    "body": ["import * as React from 'react';$0"]
+  },
+  "useRef": {
+    "prefix": "urh",
+    "body": ["const $1 = useRef($2)$0"],
     "description": "React useRef() hook"
-},
-	"useReducer": {
+  },
+  "useReducer": {
     "prefix": "urdh",
     "body": [
-        "const [${1:state},${2: dispatch}] = useReducer(state, action);", 
-            
-            "\n\treturn (",
-            "\t\t",
-            "\t);"
+      "const [${1:state},${2: dispatch}] = useReducer(state, action);",
+      "\n\treturn (",
+      "\t\t",
+      "\t);"
+    ],
+    "description": "React useReducer() hook"
+  },
 
-        ],
-        "description": "React useReducer() hook"
-},
-    "prev state": {
-        "prefix": "prev",
-        "body": [ "const prev${1/(.*)/${1:/capitalize}/}Ref = useRef();", "useEffect(() => {", "\tprev${1/(.*)/${1:/capitalize}/}Ref.current = $1;", "});", "const prev$1 = prev${1:/capitalize}/}Ref.current;"]
-    },
-    "import react-redux hooks": {
-        "prefix": "irrh",
-        "body": ["import { useSelector, useDispatch } from 'react-redux';"]
-    },
-    "useSelector": {
-        "prefix": "uss",
-        "body": [
-            "const $1 = useSelector(state => state.$1);"
-        ]
-    },
-    "useDispatchFunction": {
-      "prefix": "usdf",
-      "body": ["const dispatch = useDispatch();"]
-    },
-    "useDispatch": {
-      "prefix": "usd",
-      "body": ["const $1 = $2 => dispatch($3);"]
-    }
+  "import react-redux hooks": {
+    "prefix": "imrd",
+    "body": ["import { useSelector, useDispatch } from 'react-redux';"]
+  },
+  "useSelector": {
+    "prefix": "uss",
+    "body": ["const $1 = useSelector((state: iRootState) => state.$2);$0"]
+  },
+  "useDispatchFunction": {
+    "prefix": "usdf",
+    "body": ["const dispatch = useDispatch();"]
+  },
+  "useDispatch": {
+    "prefix": "usd",
+    "body": ["const $1 = $2 => dispatch($3);"]
+  },
+  "antd": {
+    "prefix": "ima",
+    "body": ["import { $1 } from 'antd';$0"]
+  },
+  "import classnames": {
+    "prefix": "imclass",
+    "body": ["import classnames from 'classnames';$0"]
+  },
+  "import svg": {
+      "prefix": "imsvg",
+      "body":["import { ReactComponent as $1 } from '$2';$0"]
+  },
+  "react component template": {
+    "prefix": "imrt",
+    "body": ["import React from 'react';",
+        "import styles from './index.module.less';",
+        "\n",
+        "interface I$1 {",
+        "\n\t$2",
+        "}",
+        "\n",
+        "const ${3:FC}: React.FC<$1> = (props) => {",
+        "\n\t$4",
+        "\treturn (",
+        "\n\t$5",
+        "\t);",
+        "};",
+        "export default React.memo(${3});"
+    ]
+  },
+  "redux component template": {
+    "prefix": "imrdt",
+    "body": ["import React from 'react';",
+        "import styles from './index.module.less';",
+        "import { useDispatch, useSelector } from 'react-redux';",
+        "import { Dispatch, iRootState } from '../store';",
+        "\n",
+        "interface I$1 {",
+        "\n\t$2",
+        "}",
+        "\n",
+        "const ${3:FC}: React.FC<$1> = (props) => {",
+        "\tconst dispatch = useDispatch<Dispatch>();",
+        "\tconst $4 = useSelector((state: iRootState) => state.);",
+        "\n\t$5",
+        "\treturn (",
+        "\n\t$6",
+        "\t);",
+        "};",
+        "export default React.memo(${3});"
+    ]
+  }
 }
