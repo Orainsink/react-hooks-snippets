@@ -1,4 +1,13 @@
-{
+{"console.log": {
+    "prefix": "clg",
+    "body": ["console.log(${1:object})"],
+    "description": "console.log"
+  },
+  "console.log with name": {
+    "prefix": "clgn",
+    "body": ["console.log('${1:object}',${1:object})"],
+    "description": "console.log with name"
+  },
   "useState": {
     "prefix": "ush",
     "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"],
@@ -9,13 +18,8 @@
     "body": ["useEffect(() => {", "\t$1", "}, [$2]);$0"],
     "description": "React useEffect() hook"
   },
-  "useContext": {
-    "prefix": "uch",
-    "body": ["const $1 = useContext($2);$0"],
-    "description": "React useContext() hook"
-  },
   "useCallback": {
-    "prefix": "ucbh",
+    "prefix": "uch",
     "body": ["const $1 = useCallback(() => {", "\t$2", "\t},[$3],", ");$0"],
     "description": "React useCallback() hook"
   },
@@ -24,96 +28,75 @@
     "body": ["const $1 = useMemo(() => {", "\t$2", "}, [$3]);$0"],
     "description": "React useMemo() hook"
   },
-  "import react hooks": {
-    "prefix": "imh",
-    "body": ["import React, { $1 } from 'react';$0"]
-  },
-  "import react": {
-    "prefix": "imr",
-    "body": ["import * as React from 'react';$0"]
-  },
   "useRef": {
     "prefix": "urh",
     "body": ["const $1 = useRef($2)$0"],
     "description": "React useRef() hook"
-  },
-  "useReducer": {
-    "prefix": "urdh",
-    "body": [
-      "const [${1:state},${2: dispatch}] = useReducer(state, action);",
-      "\n\treturn (",
-      "\t\t",
-      "\t);"
-    ],
-    "description": "React useReducer() hook"
-  },
-
-  "import react-redux hooks": {
-    "prefix": "imrd",
-    "body": ["import { useSelector, useDispatch } from 'react-redux';"]
   },
   "useSelector": {
     "prefix": "uss",
     "body": ["const $1 = useSelector((state: iRootState) => state.$2);$0"]
   },
   "useDispatchFunction": {
-    "prefix": "usdf",
-    "body": ["const dispatch = useDispatch();"]
-  },
-  "useDispatch": {
     "prefix": "usd",
-    "body": ["const $1 = $2 => dispatch($3);"]
+    "body": ["const dispatch = useDispatch<Dispatch>();"]
+  },
+  "import react hooks": {
+    "prefix": "imrh",
+    "body": ["import React, { $1 } from 'react';$0"]
+  },
+  "import react": {
+    "prefix": "imr",
+    "body": ["import * as React from 'react';$0"]
+  },
+  "import react-redux hooks": {
+    "prefix": "imd",
+    "body": ["import { useSelector, useDispatch } from 'react-redux';"]
   },
   "antd": {
     "prefix": "ima",
     "body": ["import { $1 } from 'antd';$0"]
   },
   "import classnames": {
-    "prefix": "imclass",
+    "prefix": "imc",
     "body": ["import classnames from 'classnames';$0"]
   },
   "import svg": {
-      "prefix": "imsvg",
-      "body":["import { ReactComponent as $1 } from '$2';$0"]
+      "prefix": "ims",
+      "body":["import { ReactComponent as set${1/(.*)/${1:/capitalize}/}Svg } from '$1.svg';$0"]
   },
   "react component template": {
-    "prefix": "imrt",
+    "prefix": "imt",
     "body": ["import React from 'react';",
         "import styles from './index.module.less';",
-        "\n",
         "interface I$1 {",
-        "\n\t$2",
+        "\t",
         "}",
-        "\n",
-        "const ${3:FC}: React.FC<$1> = (props) => {",
-        "\n\t$4",
+        "const ${2:FC}: React.FC<I$1> = (props) => {",
         "\treturn (",
-        "\n\t$5",
+        "\t\t",
         "\t);",
         "};",
-        "export default React.memo(${3});"
+        "export default React.memo(${2:FC});"
     ]
   },
   "redux component template": {
-    "prefix": "imrdt",
+    "prefix": "imdt",
     "body": ["import React from 'react';",
         "import styles from './index.module.less';",
         "import { useDispatch, useSelector } from 'react-redux';",
         "import { Dispatch, iRootState } from '../store';",
-        "\n",
         "interface I$1 {",
-        "\n\t$2",
+        "\t",
         "}",
-        "\n",
-        "const ${3:FC}: React.FC<$1> = (props) => {",
+        "const ${2:FC}: React.FC<I$1> = (props) => {",
         "\tconst dispatch = useDispatch<Dispatch>();",
-        "\tconst $4 = useSelector((state: iRootState) => state.);",
-        "\n\t$5",
+        "\tconst $3 = useSelector((state: iRootState) => state.);",
         "\treturn (",
-        "\n\t$6",
+        "\t\t",
         "\t);",
         "};",
-        "export default React.memo(${3});"
+        "export default React.memo(${2:FC});"
     ]
   }
 }
