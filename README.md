@@ -1,47 +1,68 @@
-<p align='center'>
-	<img src='https://raw.githubusercontent.com/alDuncanson/react-hooks-snippets/master/icon.png' title='React Hooks Snippets icon' alt='React Hooks Snippets icon' width='250'/>
-</p>
 
----
+# NR React Hooks Snippets
 
-<p align='center'>
-	<a href='https://marketplace.visualstudio.com/items?itemName=AlDuncanson.react-hooks-snippets'><img src='https://vsmarketplacebadge.apphb.com/version/AlDuncanson.react-hooks-snippets.svg'/></a>
-	<a href='https://marketplace.visualstudio.com/items?itemName=AlDuncanson.react-hooks-snippets'><img src='https://vsmarketplacebadge.apphb.com/installs/AlDuncanson.react-hooks-snippets.svg'/></a>
-	<a href='https://marketplace.visualstudio.com/items?itemName=AlDuncanson.react-hooks-snippets'><img src='https://vsmarketplacebadge.apphb.com/rating/AlDuncanson.react-hooks-snippets.svg'/></a>
-</p>
+Code less, think more.
 
-<p align='center'>
-	<a href='https://GitHub.com/alDuncanson/react-hooks-snippets/stargazers/'><img src='https://img.shields.io/github/stars/alDuncanson/react-hooks-snippets.svg?style=social&label=Star&maxAge=2592000'/></a>
-	<a href='https://github.com/alDuncanson/react-hooks-snippets/network/'><img src='https://img.shields.io/github/forks/alDuncanson/react-hooks-snippets.svg?style=social&label=Fork&maxAge=2592000'/></a>
-	<a href='https://github.com/alDuncanson/react-hooks-snippets/blob/master/LICENSE.txt'><img src='https://img.shields.io/github/license/alDuncanson/react-hooks-snippets.svg'/></a>
-</p>
-
----
-
-
-# React Hooks Snippets
-
-React Hooks Snippets is a [Visual Studio Code](https://code.visualstudio.com/) extension to make writing ReactJS [Hooks](https://reactjs.org/docs/hooks-intro.html) easier and faster!
+Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-snippets)
 
 
 ## Supported Snippets
 
 | Prefix  | Snippet |
 | ------------- | ------------- |
-| `ush` | `useState` |
-| `ueh` | `useEffect` |
-| `uch` | `useContext` |
-| `ucbh` | `useCallback` |
-| `umh` | `useMemo` |
-| `irh` | `import React` (and common hooks) |
-| `urh` | `useRef` |
-| `urdh` | `useReducer` |
-| `prev` | use previous state|
-| `irrh` | import react redux hooks |
-| `uss` | `useSelector` |
-| `usdf` | `useDispatch` |
-| `usd` | then use your `dispatch` |
+| `clg` | `console.log( xx )` |
+| `clgn` | `console.log("xx", xx)` |
+| `ush` | `const [xx,setXx] = useState(yy);` |
+| `ueh` | `useEffect` template |
+| `uch` | `useCallback` template |
+| `umh` | `useMemo` template |
+| `urh` | `const $1 = useRef(${2:null})` |
+| `uss` | `const $1 = useSelector((state: iRootState) => state.$2);` |
+| `usd` | `const dispatch = useDispatch<Dispatch>();` |
+| `imr` | `import * as React from 'react';` |
+| `imrh` | `import React, { xx } from 'react';` |
+| `imd` | `import { useSelector, useDispatch } from 'react-redux';` |
+| `ima` | `import { xx } from 'antd';` |
+| `imc` | `import classnames from 'classnames';` |
+| `ims` | `import { ReactComponent as XxSvg } from 'xx.svg';` |
+| `imt` | a template of normal react component |
+| `imtd` | a template of react component with Redux |
 
+**imt**
+
+```js
+import React from 'react';
+import styles from './index.module.less';
+interface IFC {
+  
+}
+const FC: React.FC<IFC> = (props) => {
+  return (
+    
+  );
+};
+export default React.memo(FC);
+```
+
+**imtd**
+
+```js
+import React from 'react';
+import styles from './index.module.less';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch, iRootState } from '../store';
+interface IFC {
+  
+}
+const FC: React.FC<IFC> = (props) => {
+  const dispatch = useDispatch<Dispatch>();
+  const  = useSelector((state: iRootState) => state.);
+  return (
+    
+  );
+};
+export default React.memo(FC);
+```
 
 ## Add to your project
 

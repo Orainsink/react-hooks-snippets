@@ -2,9 +2,9 @@
 	"name": "react-hooks-snippets",
 	"displayName": "React Hooks Snippets",
 	"description": "Code snippets for React Hooks",
-	"version": "1.1.7",
+	"version": "1.0.0",
 	"icon": "icon.png",
-	"publisher": "AlDuncanson",
+	"publisher": "Orainsink",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Orainsink/react-hooks-snippets.git"

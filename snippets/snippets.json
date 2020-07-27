@@ -41,6 +41,10 @@
     "prefix": "usd",
     "body": ["const dispatch = useDispatch<Dispatch>();"]
   },
+  "import module": {
+    "prefix": "imm",
+    "body": ["import $1 from '$2$1'"]
+  },
   "import react hooks": {
     "prefix": "imrh",
     "body": ["import React, { $1 } from 'react';$0"]
@@ -63,21 +67,21 @@
   },
   "import svg": {
       "prefix": "ims",
-      "body":["import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$1.svg';$0"]
+      "body":["import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$2$1.svg';$0"]
   },
   "react component template": {
     "prefix": "imt",
     "body": ["import React from 'react';",
         "import styles from './index.module.less';",
         "interface I$1 {",
-        "\t",
+        "\t$2",
         "}",
-        "const ${2:FC}: React.FC<I$1> = (props) => {",
+        "const ${1:FC}: React.FC<I$1> = (props) => {",
         "\treturn (",
         "\t\t",
         "\t);",
         "};",
-        "export default React.memo(${2:FC});"
+        "export default React.memo(${1:FC});"
     ]
   },
   "redux component template": {
@@ -89,14 +93,14 @@
         "interface I$1 {",
         "\t",
         "}",
-        "const ${2:FC}: React.FC<I$1> = (props) => {",
+        "const ${1:FC}: React.FC<I$1> = (props) => {",
         "\tconst dispatch = useDispatch<Dispatch>();",
         "\tconst $3 = useSelector((state: iRootState) => state.);",
         "\treturn (",
         "\t\t",
         "\t);",
         "};",
-        "export default React.memo(${2:FC});"
+        "export default React.memo(${1:FC});"
     ]
   }
 }
