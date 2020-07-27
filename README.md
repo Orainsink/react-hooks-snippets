@@ -1,6 +1,8 @@
 
 # NR React Hooks Snippets
 
+![icon](D:\work_space\nr-react-hooks-snippets\icon.png)
+
 Code less, think more.
 
 Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-snippets)
@@ -34,11 +36,11 @@ Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-sn
 import React from 'react';
 import styles from './index.module.less';
 interface IFC {
-  
+
 }
 const FC: React.FC<IFC> = (props) => {
   return (
-    
+
   );
 };
 export default React.memo(FC);
@@ -52,13 +54,13 @@ import styles from './index.module.less';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, iRootState } from '../store';
 interface IFC {
-  
+
 }
 const FC: React.FC<IFC> = (props) => {
   const dispatch = useDispatch<Dispatch>();
   const  = useSelector((state: iRootState) => state.);
   return (
-    
+
   );
 };
 export default React.memo(FC);
@@ -69,10 +71,10 @@ export default React.memo(FC);
 There are 2 ways you can add React Hooks Snippets to your project:
 
 #### By command
-Launch VS Code Quick Open (`Ctrl+P`), paste `ext install AlDuncanson.react-hooks-snippets`, and press enter.
+Launch VS Code Quick Open (`Ctrl+P`), paste `ext install Orainsink.nr-react-hooks-snippets`, and press enter.
 
 #### By the Extension Marketplace
-Launch VS Code Extension Marketplace (Ctrl+Shift+X), search for `React Hooks Snippets`, and look for my logo!
+Launch VS Code Extension Marketplace (Ctrl+Shift+X), search for `NR React Hooks Snippets`, and look for my logo!
 
 
 ## Contributing

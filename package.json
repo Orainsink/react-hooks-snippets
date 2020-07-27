@@ -1,8 +1,8 @@
 {
-	"name": "react-hooks-snippets",
-	"displayName": "React Hooks Snippets",
+	"name": "nr-react-hooks-snippets",
+	"displayName": "NR React Hooks Snippets",
 	"description": "Code snippets for React Hooks",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"icon": "icon.png",
 	"publisher": "Orainsink",
 	"repository": {
