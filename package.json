@@ -2,9 +2,14 @@
 	"name": "nr-react-hooks-snippets",
 	"displayName": "NR React Hooks Snippets",
 	"description": "Code snippets for React Hooks",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"icon": "icon.png",
-	"publisher": "Orainsink",
+    "publisher": "Orainsink",
+    "author":{
+        "name": "Orainsink",
+        "email": "ywt1250066597@gmail.com",
+        "url": "https://github.com/Orainsink/react-hooks-snippets.git"
+      },
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Orainsink/react-hooks-snippets.git"
