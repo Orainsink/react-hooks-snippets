@@ -1,7 +1,7 @@
 
 # NR React Hooks Snippets
 
-![icon](D:\work_space\nr-react-hooks-snippets\icon.png)
+![icon](./icon.png)
 
 Code less, think more.
 
