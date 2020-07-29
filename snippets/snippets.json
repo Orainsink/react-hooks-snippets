@@ -69,6 +69,17 @@
       "prefix": "ims",
       "body":["import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$2$1.svg';$0"]
   },
+  "cover global styles": {
+    "prefix": "&g",
+    "body":["& :global($1){",
+        "\t$2",
+    "}$0"]
+},
+    "event prevent default and stop prapagation": {
+        "prefix": "esp",
+        "body":["e.stopPropagation();",
+        "e.preventDefault();"]
+    },
   "react component template": {
     "prefix": "imt",
     "body": ["import React from 'react';",
