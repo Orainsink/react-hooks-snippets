@@ -14,6 +14,7 @@ Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-sn
 | ------------- | ------------- |
 | `clg` | `console.log( xx )` |
 | `clgn` | `console.log("xx", xx)` |
+| `cls` | `className={styles.$1}` |
 | `esp` | `e.stopPropagation(); e.preventDefault();` |
 | `&g` | `& :global($1){$2}` |
 | `ush` | `const [xx,setXx] = useState(yy);` |
