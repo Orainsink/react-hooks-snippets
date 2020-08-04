@@ -2,7 +2,7 @@
 	"name": "nr-react-hooks-snippets",
 	"displayName": "NR React Hooks Snippets",
 	"description": "Code snippets for React Hooks",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"icon": "icon.png",
     "publisher": "Orainsink",
     "author":{
@@ -30,6 +30,14 @@
 		"snippets": [
 			{
 				"language": "javascript",
+				"path": "./snippets/snippets.json"
+            },
+            {
+				"language": "css",
+				"path": "./snippets/snippets.json"
+            },
+            {
+				"language": "less",
 				"path": "./snippets/snippets.json"
 			},
 			{

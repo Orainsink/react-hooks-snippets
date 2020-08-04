@@ -82,7 +82,7 @@
       "body":["import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$2$1.svg';$0"]
   },
   "cover global styles": {
-    "prefix": ":gl",
+    "prefix": "glb",
     "body":["& :global($1){",
         "\t$2",
     "}$0"]
