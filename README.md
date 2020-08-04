@@ -17,6 +17,7 @@ Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-sn
 | `cls` | `className={styles.$1}` |
 | `esp` | `e.stopPropagation(); e.preventDefault();` |
 | `:gl` | `& :global($1){$2}` |
+| `elli` | `css text-overflow: ellipsis` |
 | `ush` | `const [xx,setXx] = useState(yy);` |
 | `ueh` | `useEffect` template |
 | `uch` | `useCallback` template |
