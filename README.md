@@ -31,6 +31,9 @@ Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-sn
 | `ima` | `import { xx } from 'antd';` |
 | `imc` | `import classnames from 'classnames';` |
 | `ims` | `import { ReactComponent as XxSvg } from 'xx.svg';` |
+| `iml` | `import loadable from '@loadable/component';` |
+| `lmm` | `const $1 = loadable(() => import('$1'));$0` |
+| `imc` | `import classnames from 'classnames';` |
 | `imt` | a template of normal react component |
 | `imtd` | a template of react component with Redux |
 | `imtt` | a template of antd table component |

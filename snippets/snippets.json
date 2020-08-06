@@ -1,4 +1,5 @@
-{"console.log": {
+{
+  "console.log": {
     "prefix": "clg",
     "body": ["console.log(${1:object})"],
     "description": "console.log"
@@ -10,16 +11,18 @@
   },
   "className": {
     "prefix": "cls",
-    "body":["className={styles.$1}$0"],
+    "body": ["className={styles.$1}$0"],
     "description": "react className"
-},
-"text ellipsis": {
+  },
+  "text ellipsis": {
     "prefix": "elli",
-    "body":["white-space: nowrap;",
-    "text-overflow: ellipsis;",
-    "overflow: hidden;"],
+    "body": [
+      "white-space: nowrap;",
+      "text-overflow: ellipsis;",
+      "overflow: hidden;"
+    ],
     "description": "css ellipsis"
-},
+  },
   "useState": {
     "prefix": "ush",
     "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"],
@@ -78,108 +81,118 @@
     "body": ["import classnames from 'classnames';$0"]
   },
   "import svg": {
-      "prefix": "ims",
-      "body":["import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$2$1.svg';$0"]
+    "prefix": "ims",
+    "body": [
+      "import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$2$1.svg';$0"
+    ]
+  },
+  "import loadable": {
+    "prefix": "iml",
+    "body": ["import loadable from '@loadable/component';"]
+  },
+  "const loadable component": {
+    "prefix": "lmm",
+    "body": ["const $1 = loadable(() => import('$1'));$0"]
   },
   "cover global styles": {
     "prefix": "glb",
-    "body":["& :global($1){",
-        "\t$2",
-    "}$0"]
-},
-    "event prevent default and stop prapagation": {
-        "prefix": "esp",
-        "body":["e.stopPropagation();",
-        "e.preventDefault();"]
-    },
+    "body": ["& :global($1){", "\t$2", "}$0"]
+  },
+  "event prevent default and stop prapagation": {
+    "prefix": "esp",
+    "body": ["e.stopPropagation();", "e.preventDefault();"]
+  },
   "react component template": {
     "prefix": "imt",
-    "body": ["import React from 'react';",
-        "import styles from './index.module.less';",
-        "interface I$1 {",
-        "\t$2",
-        "}",
-        "const ${1:FC}: React.FC<I$1> = (props) => {",
-        "\treturn (",
-        "\t\t",
-        "\t);",
-        "};",
-        "export default React.memo(${1:FC});"
+    "body": [
+      "import React from 'react';",
+      "import styles from './index.module.less';",
+      "interface I$1 {",
+      "\t$2",
+      "}",
+      "const ${1:FC}: React.FC<I$1> = (props) => {",
+      "\treturn (",
+      "\t\t",
+      "\t);",
+      "};",
+      "export default React.memo(${1:FC});"
     ]
   },
   "redux component template": {
     "prefix": "imdt",
-    "body": ["import React from 'react';",
-        "import styles from './index.module.less';",
-        "import { useDispatch, useSelector } from 'react-redux';",
-        "import { Dispatch, iRootState } from '../store';",
-        "interface I$1 {",
-        "\t",
-        "}",
-        "const ${1:FC}: React.FC<I$1> = (props) => {",
-        "\tconst dispatch = useDispatch<Dispatch>();",
-        "\tconst $3 = useSelector((state: iRootState) => state.);",
-        "\treturn (",
-        "\t\t",
-        "\t);",
-        "};",
-        "export default React.memo(${1:FC});"
+    "body": [
+      "import React from 'react';",
+      "import styles from './index.module.less';",
+      "import { useDispatch, useSelector } from 'react-redux';",
+      "import { Dispatch, iRootState } from '../store';",
+      "interface I$1 {",
+      "\t",
+      "}",
+      "const ${1:FC}: React.FC<I$1> = (props) => {",
+      "\tconst dispatch = useDispatch<Dispatch>();",
+      "\tconst $3 = useSelector((state: iRootState) => state.);",
+      "\treturn (",
+      "\t\t",
+      "\t);",
+      "};",
+      "export default React.memo(${1:FC});"
     ]
   },
   "react antd Table template": {
     "prefix": "imtt",
-    "body":["import React, { useState, useEffect, useCallback, useMemo } from 'react';",
-        "import classnames from 'classnames';",
-        "import { useDispatch, useSelector } from 'react-redux';",
-        "import styles from './index.module.less';",
-        "import InfiniteScroll from 'react-infinite-scroller';",
-        "import TableComponent from '$1/components/TableComponent';",
-        "import EndComponent from '$1/components/EndComponent'",
-        "import { ColumnProps } from 'antd/es/table';",
-        "import { Result } from 'antd';",
-        "import { Dispatch, iRootState } from '$1/store';",
-        "import {xk} from '$1/utils/domain';",
-        "import { Sort } from '../typings';",
-        "\nconst $2 = () => {",
-        "\tconst dispatch = useDispatch<Dispatch>();",
-        "\tconst params = useSelector((state: iRootState) => state.$3.params);",
-        "\tconst { total, count, error, list } = useSelector((state: iRootState) => state.$3.data);",
-        "\tconst [hasMore, setHasMore] = React.useState(true);",
-        "\tconst loading = useSelector((state: any) => state.loading.effects.$3.fetch);",
-        "\t/** 监听params */",
-        "\tuseEffect(() => {setHasMore(true);dispatch.$3.fetch(params);}, [dispatch, params]);",
-        "\t/** 排序 */",
-        "\tconst _handleSort = useCallback((val) => {dispatch.$3.changeParamEffect({sort: val});},[dispatch]);",
-        "\t/** 表格头 */",
-        "\tconst createTitle = useCallback((title: string, type: Sort) => {},[_handleSort]);",
-        "\t/** 表格列 */",
-        "\tconst columns: ColumnProps<${5:any}>[] = useMemo(() => {",
-            "\t\treturn[{",
-                "\t\t\t// title: createTitle('${6:名称}', '${7:排序}'),",
-                "\t\t\t// dataIndex: '${8:字段}', align: 'center',",
-                "\t\t\t// className: params.sort === '${7:排序}' ? styles.sortActive:${10:默认样式},",
-                "\t\t\t// render(text: string, record, index) {<></>}",
-                "\t\t},]",
-        "\t}, [params.sort, createTitle]);",
-        "\t/** 加载更多 */",
-        "\tconst loadMore = useCallback((page: number) => {",
-            "\t\tif (loading) return;",
-            "\t\tlet newTotal = total > count ? count : total;",
-            "\t\tif (Math.ceil(newTotal / params.size) <= params.start) {setHasMore(false);return;}",
-            "\t\tdispatch.$3.changeParamEffects({start: params.start + 1});",
-        "\t},[dispatch, loading, params, count, total]);",
-        "\n",
-        "\treturn error ? (<Result status='warning' title={(error?.code || error?.name) ?? 500} subTitle={error?.message ?? '服务异常'} />) :",
-        "\t(<div className={styles.wrap}>",
-            "\t\t<InfiniteScroll useWindow={false} loadMore={loadMore} pageStart={1} threshold={100} initialLoad={false} hasMore={hasMore} getScrollParent={() => document.getElementById('scrollLayoutContent')}>",
-                "\t\t\t<TableComponent<any> rowKey='${10:行key}' rowClassName={styles.rowCls} dataSource={list} locale={{ emptyText: ${11:空白提示} }}",
-                    "\t\t\t\tonRow={(record) => {return {onClick: (e) => {window.open(`/${{xk}}/d/video/commentShot/${record.photoId}`);},};}}",
-                    "\t\t\t\tcolumns={columns} loading={loading} pagination={false}/>",
-                "\t\t\t<EndComponent loading={loading} count={count} total={total} isAllSearch dataLength={list.length} />",
-            "\t\t</InfiniteScroll>",
-        "\t</div>);",
-        "}",
-        "export default React.memo($2)"
+    "body": [
+      "import React, { useState, useEffect, useCallback, useMemo } from 'react';",
+      "import classnames from 'classnames';",
+      "import { useDispatch, useSelector } from 'react-redux';",
+      "import styles from './index.module.less';",
+      "import InfiniteScroll from 'react-infinite-scroller';",
+      "import TableComponent from '$1/components/TableComponent';",
+      "import EndComponent from '$1/components/EndComponent'",
+      "import { ColumnProps } from 'antd/es/table';",
+      "import { Result } from 'antd';",
+      "import { Dispatch, iRootState } from '$1/store';",
+      "import {xk} from '$1/utils/domain';",
+      "import { Sort } from '../typings';",
+      "\nconst $2 = () => {",
+      "\tconst dispatch = useDispatch<Dispatch>();",
+      "\tconst params = useSelector((state: iRootState) => state.$3.params);",
+      "\tconst { total, count, error, list } = useSelector((state: iRootState) => state.$3.data);",
+      "\tconst [hasMore, setHasMore] = React.useState(true);",
+      "\tconst loading = useSelector((state: any) => state.loading.effects.$3.fetch);",
+      "\t/** 监听params */",
+      "\tuseEffect(() => {setHasMore(true);dispatch.$3.fetch(params);}, [dispatch, params]);",
+      "\t/** 排序 */",
+      "\tconst _handleSort = useCallback((val) => {dispatch.$3.changeParamEffect({sort: val});},[dispatch]);",
+      "\t/** 表格头 */",
+      "\tconst createTitle = useCallback((title: string, type: Sort) => {},[_handleSort]);",
+      "\t/** 表格列 */",
+      "\tconst columns: ColumnProps<${5:any}>[] = useMemo(() => {",
+      "\t\treturn[{",
+      "\t\t\t// title: createTitle('${6:名称}', '${7:排序}'),",
+      "\t\t\t// dataIndex: '${8:字段}', align: 'center',",
+      "\t\t\t// className: params.sort === '${7:排序}' ? styles.sortActive:${10:默认样式},",
+      "\t\t\t// render(text: string, record, index) {<></>}",
+      "\t\t},]",
+      "\t}, [params.sort, createTitle]);",
+      "\t/** 加载更多 */",
+      "\tconst loadMore = useCallback((page: number) => {",
+      "\t\tif (loading) return;",
+      "\t\tlet newTotal = total > count ? count : total;",
+      "\t\tif (Math.ceil(newTotal / params.size) <= params.start) {setHasMore(false);return;}",
+      "\t\tdispatch.$3.changeParamEffects({start: params.start + 1});",
+      "\t},[dispatch, loading, params, count, total]);",
+      "\n",
+      "\treturn error ? (<Result status='warning' title={(error?.code || error?.name) ?? 500} subTitle={error?.message ?? '服务异常'} />) :",
+      "\t(<div className={styles.wrap}>",
+      "\t\t<InfiniteScroll useWindow={false} loadMore={loadMore} pageStart={1} threshold={100} initialLoad={false} hasMore={hasMore} getScrollParent={() => document.getElementById('scrollLayoutContent')}>",
+      "\t\t\t<TableComponent<any> rowKey='${10:行key}' rowClassName={styles.rowCls} dataSource={list} locale={{ emptyText: ${11:空白提示} }}",
+      "\t\t\t\tonRow={(record) => {return {onClick: (e) => {window.open(`/${{xk}}/d/video/commentShot/${record.photoId}`);},};}}",
+      "\t\t\t\tcolumns={columns} loading={loading} pagination={false}/>",
+      "\t\t\t<EndComponent loading={loading} count={count} total={total} isAllSearch dataLength={list.length} />",
+      "\t\t</InfiniteScroll>",
+      "\t</div>);",
+      "}",
+      "export default React.memo($2)"
     ]
-}
+  }
 }
