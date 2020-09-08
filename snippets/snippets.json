@@ -1,12 +1,12 @@
 {
   "console.log": {
     "prefix": "clg",
-    "body": ["console.log(${1:object})"],
+    "body": ["console.log(${1:object});"],
     "description": "console.log"
   },
   "console.log with name": {
     "prefix": "clgn",
-    "body": ["console.log('${1:object}',${1:object})"],
+    "body": ["console.log('${1:object}',${1:object});"],
     "description": "console.log with name"
   },
   "className": {
@@ -27,7 +27,7 @@
   "css vars":{
     "prefix": "v--",
     "body": [
-      "var(--$1)"
+      "var(--$1);"
     ],
     "description": "css vars"
   },
@@ -53,7 +53,7 @@
   },
   "useRef": {
     "prefix": "urh",
-    "body": ["const $1 = useRef($2)$0"],
+    "body": ["const $1 = useRef($2);$0"],
     "description": "React useRef() hook"
   },
   "useSelector": {
@@ -66,7 +66,7 @@
   },
   "import module": {
     "prefix": "imm",
-    "body": ["import $1 from '$2$1'"]
+    "body": ["import $1 from '$2$1';"]
   },
   "import react hooks": {
     "prefix": "imrh",
@@ -104,7 +104,7 @@
   },
   "cover global styles": {
     "prefix": "glb",
-    "body": ["& :global($1){", "\t$2", "}$0"]
+    "body": ["& :global($1){", "\t$2", "};$0"]
   },
   "event prevent default and stop prapagation": {
     "prefix": "esp",

@@ -2,7 +2,7 @@
 	"name": "nr-react-hooks-snippets",
 	"displayName": "NR React Hooks Snippets",
 	"description": "Code snippets for React Hooks",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"icon": "icon.png",
     "publisher": "Orainsink",
     "author":{

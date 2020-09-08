@@ -16,8 +16,8 @@ Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-sn
 | `clgn` | `console.log("xx", xx)` |
 | `cls` | `className={styles.$1}` |
 | `esp` | `e.stopPropagation(); e.preventDefault();` |
-| `glb` | `& :global($1){$2}` |
-| `v--` | `var(--$1)` |
+| `glb` | `& :global($1){$2};` |
+| `v--` | `var(--$1);` |
 | `elli` | `css text-overflow: ellipsis` |
 | `ush` | `const [xx,setXx] = useState(yy);` |
 | `ueh` | `useEffect` template |
@@ -43,10 +43,10 @@ Folked from [react-hooks-snippets](https://github.com/alDuncanson/react-hooks-sn
 ```js
 import React from 'react';
 import styles from './index.module.less';
-interface IFC {
+interface Props {
 
 }
-const FC: React.FC<IFC> = (props) => {
+const FC = (props: Props) => {
   return (
 
   );
