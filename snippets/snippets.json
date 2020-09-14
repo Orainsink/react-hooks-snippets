@@ -118,7 +118,7 @@
       "interface Props {",
       "\t$2",
       "}",
-      "const ${1:FC}: React.FC<I$1> = (props: Props) => {",
+      "const ${1:FC} = (props: Props) => {",
       "\treturn (",
       "\t\t",
       "\t);",
