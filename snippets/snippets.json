@@ -14,21 +14,24 @@
     "body": ["className={styles.$1}$0"],
     "description": "react className"
   },
+  "style": {
+    "prefix": "sty",
+    "body": ["style={{ $1 }}"],
+    "description": "react style attribute"
+  },
   "text ellipsis": {
     "prefix": "elli",
     "body": [
       "white-space: nowrap;",
       "text-overflow: ellipsis;",
       "overflow: hidden;",
-      "max-length: 10em;"
+      "max-width: 10em;"
     ],
     "description": "css ellipsis"
   },
-  "css vars":{
+  "css vars": {
     "prefix": "v--",
-    "body": [
-      "var(--$1);"
-    ],
+    "body": ["var(--$1);"],
     "description": "css vars"
   },
   "useState": {
@@ -63,6 +66,10 @@
   "useDispatchFunction": {
     "prefix": "usd",
     "body": ["const dispatch = useDispatch<Dispatch>();"]
+  },
+  "useUnstatedContainer": {
+    "prefix": "usc",
+    "body": ["const {  } = $1.useContainer();"]
   },
   "import module": {
     "prefix": "imm",
@@ -144,6 +151,18 @@
       "\t);",
       "};",
       "export default React.memo(${1:FC});"
+    ]
+  },
+  "unstated-next container template": {
+    "prefix": "imut",
+    "body": [
+      "import { useState } from 'react';",
+      "import { createContainer } from 'unstated-next';",
+      "function useCounter() {",
+      "\tconst [${1}, set${1/(.*)/${1:/capitalize}/}] = useState<any>($2);",
+      "\treturn { ${1}, set${1/(.*)/${1:/capitalize}/} };",
+      "};",
+      "export default createContainer(useCounter);"
     ]
   }
 }
