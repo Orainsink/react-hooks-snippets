@@ -71,6 +71,10 @@
     "prefix": "usc",
     "body": ["const {  } = $1.useContainer();"]
   },
+  "useMedia": {
+    "prefix": "usm",
+    "body": ["const is$1 = useMedia('(max-width: $1px)');"]
+  },
   "import module": {
     "prefix": "imm",
     "body": ["import $1 from '$2$1';"]
