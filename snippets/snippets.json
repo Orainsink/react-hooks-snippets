@@ -63,6 +63,18 @@
     "prefix": "uss",
     "body": ["const $1 = useSelector((state: iRootState) => state.$2);$0"]
   },
+  "useSWR": {
+    "prefix": "uswr",
+    "body": [
+      "const { data, error, isValidating } = useSWR('${1:key}', (key) => fetcher(),",
+      "\t{shouldRetryOnError: false,",
+      "\trevalidateOnFocus: false,",
+      "\tdedupingInterval: 500,",
+      "\t// revalidateOnMount: true,",
+      "\t// refreshInterval: 1500,",
+      "});$0"
+    ]
+  },
   "useDispatchFunction": {
     "prefix": "usd",
     "body": ["const dispatch = useDispatch<Dispatch>();"]
@@ -104,6 +116,10 @@
     "body": [
       "import { ReactComponent as ${1/(.*)/${1:/capitalize}/}Svg } from '$2$1.svg';$0"
     ]
+  },
+  "import swr": {
+    "prefix": "imswr",
+    "body": ["import useSWR from 'swr';$0"]
   },
   "import loadable": {
     "prefix": "iml",
